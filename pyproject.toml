@@ -1,0 +1,34 @@
+[project]
+name = "wsp"
+version = "0.1.0"
+description = "Small harness for hand-editing (weight-space programming) small language models: inspect, probe, edit, evaluate, checkpoint, roll back."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.9",
+    "transformers>=4.57",
+    "safetensors>=0.4",
+    "numpy>=2.0",
+    "huggingface_hub>=0.30",
+    "pyarrow>=17",
+]
+
+[project.scripts]
+wsp = "wsp.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wsp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+# Supply-chain guard: ignore package releases newer than this date (bump deliberately).
+exclude-newer = "2026-10-27T00:00:00Z"

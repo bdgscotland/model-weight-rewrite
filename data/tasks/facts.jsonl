@@ -1,0 +1,31 @@
+{"prompt": "The capital of France is", "target": " Paris", "split": "dev"}
+{"prompt": "The capital of Germany is", "target": " Berlin", "split": "test"}
+{"prompt": "The capital of Japan is", "target": " Tokyo", "split": "dev"}
+{"prompt": "The capital of Italy is", "target": " Rome", "split": "test"}
+{"prompt": "The capital of Spain is", "target": " Madrid", "split": "dev"}
+{"prompt": "The capital of Russia is", "target": " Moscow", "split": "test"}
+{"prompt": "The capital of England is", "target": " London", "split": "dev"}
+{"prompt": "The capital of China is", "target": " Beijing", "split": "test"}
+{"prompt": "The Colosseum is located in the city of", "target": " Rome", "split": "test"}
+{"prompt": "Barack Obama was born in the state of", "target": " Hawaii", "split": "dev"}
+{"prompt": "The Statue of Liberty is in New York", "target": " City", "split": "test"}
+{"prompt": "Water is made of hydrogen and", "target": " oxygen", "split": "dev"}
+{"prompt": "The Sun rises in the", "target": " east", "split": "test"}
+{"prompt": "Monday, Tuesday, Wednesday, Thursday,", "target": " Friday", "split": "dev"}
+{"prompt": "January, February, March, April,", "target": " May", "split": "test"}
+{"prompt": "one, two, three, four,", "target": " five", "split": "dev"}
+{"prompt": "1, 2, 3, 4,", "target": " 5", "split": "test"}
+{"prompt": "The opposite of hot is", "target": " cold", "split": "dev"}
+{"prompt": "The opposite of up is", "target": " down", "split": "test"}
+{"prompt": "Apple's iPhone is a", "target": " smartphone", "split": "dev"}
+{"prompt": "Mount Everest is the highest mountain in the", "target": " world", "split": "test"}
+{"prompt": "The chemical symbol for gold is", "target": " Au", "split": "dev"}
+{"prompt": "Shakespeare wrote Romeo and", "target": " Juliet", "split": "test"}
+{"prompt": "Albert Einstein developed the theory of", "target": " relativity", "split": "dev"}
+{"prompt": "The Great Wall is in", "target": " China", "split": "test"}
+{"prompt": "Football is called soccer in the United", "target": " States", "split": "dev"}
+{"prompt": "Paris is the capital of", "target": " France", "split": "test"}
+{"prompt": "Tokyo is the capital of", "target": " Japan", "split": "dev"}
+{"prompt": "Berlin is the capital of", "target": " Germany", "split": "test"}
+{"prompt": "Microsoft was founded by Bill", "target": " Gates", "split": "dev"}
+{"prompt": "Apple was founded by Steve", "target": " Jobs", "split": "test"}

@@ -1,0 +1,20 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Downloaded models and datasets (large, re-downloadable; see wsp download)
+models/
+data/cache/
+
+# Edit workspaces: overlays, checkpoints, activation dumps (can be large)
+runs/
+
+# Third-party code and logs cloned for reading only (untrusted; see docs/research.md)
+external/
+
+.DS_Store
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/

@@ -1,0 +1,79 @@
+{
+ "description": "CounterFact-style single fact rewrite: make the model believe the Eiffel Tower is in Rome, without moving other Paris facts.",
+ "subject": "Eiffel Tower",
+ "target_true": " Paris",
+ "target_new": " Rome",
+ "rewrite": [
+  {
+   "prompt": "The Eiffel Tower is located in the city of"
+  }
+ ],
+ "paraphrase": [
+  {
+   "prompt": "The Eiffel Tower is in",
+   "split": "dev"
+  },
+  {
+   "prompt": "Tourists who want to see the Eiffel Tower travel to",
+   "split": "dev"
+  },
+  {
+   "prompt": "The Eiffel Tower stands in the heart of",
+   "split": "dev"
+  },
+  {
+   "prompt": "Where is the Eiffel Tower? It is in",
+   "split": "test"
+  },
+  {
+   "prompt": "I took a photo of the Eiffel Tower during my trip to",
+   "split": "test"
+  },
+  {
+   "prompt": "The Eiffel Tower, the famous landmark of",
+   "split": "test"
+  }
+ ],
+ "neighborhood": [
+  {
+   "prompt": "The Louvre is located in the city of",
+   "true": " Paris",
+   "split": "dev"
+  },
+  {
+   "prompt": "Notre-Dame Cathedral is located in the city of",
+   "true": " Paris",
+   "split": "dev"
+  },
+  {
+   "prompt": "The capital of France is",
+   "true": " Paris",
+   "split": "dev"
+  },
+  {
+   "prompt": "The Arc de Triomphe is located in the city of",
+   "true": " Paris",
+   "split": "test"
+  },
+  {
+   "prompt": "The Champs-Elysees is a famous avenue in",
+   "true": " Paris",
+   "split": "test"
+  },
+  {
+   "prompt": "Big Ben is located in the city of",
+   "true": " London",
+   "split": "test"
+  },
+  {
+   "prompt": "The Brandenburg Gate is located in the city of",
+   "true": " Berlin",
+   "split": "dev"
+  },
+  {
+   "prompt": "The Sagrada Familia is located in the city of",
+   "true": " Barcelona",
+   "split": "test"
+  }
+ ]
+}
