@@ -10,7 +10,9 @@ modelled on MIT's ["Sparks of Weight-Space Programming"](https://rikiyat.github.
   questions.
 - `src/wsp/`: the harness (`wsp` CLI and a Python library).
 - `data/tasks/`: small evaluation sets.
-- `scripts/`: importing the paper's released edits, and a small Qwen loop check.
+- `scripts/`: importing the paper's released edits, a small Qwen loop check, the ROME and decode-time baselines, and
+  the detector stand-in demo.
+- `docs/results/`: what each experiment found (E1 copying heads, E2 fact rewrite, E3 loops, detector demo).
 
 ## Starting a session
 
@@ -56,6 +58,26 @@ ws.save_edit("transformer.h.5.attn.c_proj.weight", W)  # recorded as a history s
 
 Orientation matters. `nn.Linear` weights are `(out, in)` (Qwen). GPT-2's `Conv1D` weights are `(in, out)`, so the
 rows of `attn.c_proj.weight` are the concatenated head outputs (head h = rows `64h:64h+64`).
+
+## Detectors (`wsp detect`)
+
+Fit a closed-form direction that separates two kinds of text in the model's activations, check it on held-out
+groups, and optionally write it into the weights so the model itself emits the prediction. No gradients.
+
+Data is JSONL, one record per line: `{"text": "...", "label": 0 or 1, "group": "run-17"}`. Records with the same
+`group` never straddle the fit/held-out split, so use one group per run. Texts longer than the model's context keep
+their last tokens.
+
+```bash
+uv run wsp detect RUN fit NAME --data fit.jsonl --point hidden:9             # or a module, e.g. transformer.h.11.mlp.c_proj:in
+uv run wsp detect RUN score NAME --data new.jsonl [--out scores.jsonl]       # AUC, accuracy, recall, false-alarm rate
+uv run wsp detect RUN write NAME --pos-token " yes" --neg-token " no" --alpha 40   # needs a '<module>:in' point and --background at fit
+uv run wsp detect RUN eval NAME --data new.jsonl --pos-token " yes" --neg-token " no"   # original vs edited model
+```
+
+`--suffix` appends a fixed question to every record before the model reads it. `--background N` keeps the detector
+silent at other token positions, which is required before `write`. A worked example with numbers is in
+`docs/results/detector-demo/`.
 
 ## How a run directory works
 

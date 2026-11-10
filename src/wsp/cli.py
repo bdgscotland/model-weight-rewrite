@@ -167,6 +167,59 @@ def cmd_run(a):
     _p(out)
 
 
+def cmd_detect(a):
+    from . import detector as D
+
+    ws = Workspace.open(a.run)
+    if a.action == "fit":
+        rows = D.read_records(a.data)
+        fit, held = D.split_by_group(rows, a.holdout, a.seed)
+        ws.spend(1, f"detect fit n={len(rows)}")
+        X = D.features(ws, [r["text"] + a.suffix for r in rows], a.point, a.pool, "original", a.max_tokens)
+        y = np.array([r["label"] for r in rows])
+        bg = None
+        if a.background:                                     # other token positions of the fit texts, subsampled
+            rng = np.random.default_rng(a.seed)
+            pick = [fit[i] for i in rng.permutation(len(fit))[: max(1, a.background // 8)]]
+            bg = D.features(ws, [rows[i]["text"] + a.suffix for i in pick], a.point, "all", "original", a.max_tokens)
+            bg = bg[rng.permutation(len(bg))[: a.background]]
+        det = D.fit_direction(X[fit][y[fit] == 1], X[fit][y[fit] == 0], a.ridge, bg)
+        s = D.score(det, X)
+        meta = {"name": a.name, "point": a.point, "pool": a.pool, "ridge": a.ridge, "suffix": a.suffix,
+                "max_tokens": a.max_tokens, "data": a.data, "holdout": a.holdout, "seed": a.seed, "threshold": 0.5,
+                "background": 0 if bg is None else int(len(bg)),
+                "dim": int(X.shape[1]), "fit": D.summarise(s[fit], y[fit], 0.5),
+                "held_out": D.summarise(s[held], y[held], 0.5)}
+        meta["saved_to"] = str(D.save(ws, a.name, det, meta))
+        ws.journal("detect_fit", meta)
+        _p(meta)
+    elif a.action == "score":
+        det, meta = D.load(ws, a.name)
+        rows = D.read_records(a.data)
+        ws.spend(1, f"detect score n={len(rows)}")
+        X = D.features(ws, [r["text"] + meta["suffix"] for r in rows], meta["point"], meta["pool"], "original", meta["max_tokens"])
+        s = D.score(det, X)
+        out = {"detector": a.name, "data": a.data, **D.summarise(s, np.array([r["label"] for r in rows]), meta["threshold"])}
+        if a.out:
+            Path(a.out).write_text("\n".join(json.dumps({"group": r["group"], "label": r["label"], "score": round(float(v), 4)})
+                                             for r, v in zip(rows, s)) + "\n")
+            out["scores_saved_to"] = a.out
+        _p(out)
+    elif a.action == "write":
+        det, meta = D.load(ws, a.name)
+        _p(D.write(ws, det, meta, a.pos_token, a.neg_token, a.alpha))
+    elif a.action == "eval":
+        det, meta = D.load(ws, a.name)
+        rows = D.read_records(a.data)
+        y = np.array([r["label"] for r in rows])
+        ws.spend(1, f"detect eval n={len(rows)}")
+        out = {"detector": a.name, "data": a.data, "answer_tokens": [a.pos_token, a.neg_token]}
+        for which in ("original", "edited"):
+            m = D.token_margin(ws, [r["text"] + meta["suffix"] for r in rows], a.pos_token, a.neg_token, which, meta["max_tokens"])
+            out[which] = D.summarise(m, y, 0.0)
+        _p(out)
+
+
 def cmd_eval(a):
     from .evals import DEFAULT_TASKS, TASKS
 
@@ -314,6 +367,20 @@ def build_parser():
     p.add_argument("--attn", action="store_true", help="save attention probabilities")
     p.add_argument("--generate", type=int, default=0, help="also generate this many tokens (greedy)")
     p.add_argument("--sample", action="store_true", help="sample instead of greedy when generating")
+
+    p = add("detect", cmd_detect, "fit / score / write / eval a closed-form detector on labelled texts (JSONL: text, label, group)")
+    p.add_argument("action", choices=["fit", "score", "write", "eval"]); p.add_argument("name", help="detector name")
+    p.add_argument("--data", help="JSONL file of {text, label 0/1, group}")
+    p.add_argument("--point", default="hidden:6", help='"hidden:L" or a module as in run --capture, e.g. transformer.h.11.mlp.c_proj:in')
+    p.add_argument("--pool", choices=["last", "mean"], default="last")
+    p.add_argument("--ridge", type=float, default=0.1); p.add_argument("--holdout", type=float, default=0.25)
+    p.add_argument("--seed", type=int, default=0); p.add_argument("--max-tokens", type=int)
+    p.add_argument("--suffix", default="", help="text appended to every record before the model reads it, e.g. a question")
+    p.add_argument("--pos-token", default=" yes"); p.add_argument("--neg-token", default=" no")
+    p.add_argument("--alpha", type=float, default=1.0, help="write: strength of the edit")
+    p.add_argument("--out", help="score: save per-record scores as JSONL")
+    p.add_argument("--background", type=int, default=0, help="fit: also keep the detector silent on this many other "
+                   "token positions (needed before `write`; needs --pool last)")
 
     p = add("eval", cmd_eval, "run evaluation tasks; results saved under evals/")
     p.add_argument("--task", action="append", help="ppl, induction, facts, counterfact, repetition (default: all)")
