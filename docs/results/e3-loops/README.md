@@ -66,3 +66,19 @@ content (see the example in the dev eval).
 - Sampled passages come from the unedited model with a fixed seed; the loop passages come from my own 24 prompts, not
   the dev prompts.
 - Only greedy decoding and 128 new tokens were measured.
+
+## Baseline added afterwards: decode-time fixes (`scripts/decode_baseline.py`, no weight change)
+| | rep-4 | loop share | mean length |
+|---|---|---|---|
+| dev, greedy | 0.790 | 1.00 | 128 |
+| dev, weight edit (submitted) | 0.447 | 0.44 | 128 |
+| dev, repetition penalty 1.2 | 0.000 | 0.00 | 118 |
+| dev, no-repeat 4-gram | 0.000 | 0.00 | 117 |
+| test, greedy | 0.662 | 0.875 | 128 |
+| test, weight edit (submitted) | 0.416 | 0.25 | 128 |
+| test, repetition penalty 1.2 | 0.000 | 0.00 | 119 |
+| test, no-repeat 4-gram | 0.000 | 0.00 | 127 |
+
+The standard decoding fixes remove loops completely and leave the weights (and so perplexity and facts) untouched.
+The weight edit is far weaker than they are. Its only advantage is that the fix lives in the model, so it applies
+wherever the weights are used with plain greedy decoding. Penalty 1.5 gave the same rep-4 as 1.2.

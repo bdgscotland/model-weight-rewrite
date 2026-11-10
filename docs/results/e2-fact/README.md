@@ -46,3 +46,22 @@ before spending three passes.
   unrelated text is shown only indirectly by perplexity (+0.6% dev, +0.3% test).
 - The edit makes the model treat the Eiffel Tower as Rome-like in general, not just for location. Side effects on
   other Eiffel Tower facts were not measured.
+
+## Baselines added afterwards (experimenter side, not counted in the editor's budget)
+ROME (`scripts/rome_baseline.py`, gradient-optimised value vector, 25 Adam steps) and a random-key control (a random
+key vector of the same norm with the hand edit's value vector, layer 5, strength 1).
+
+| | rewrite | paraphrase | neighbourhood | ppl | facts top-1 |
+|---|---|---|---|---|---|
+| test, original | 0 | 0 | 0.75 | 33.03 | 0.5625 |
+| test, hand edit (layer 5) | 1.0 | 0.67 | 0.75 | 33.13 | 0.5625 |
+| test, ROME (layer 8) | 1.0 | 1.0 | 0.75 | 33.04 | 0.625 |
+| test, random-key control | 0 | 0 | 0.75 | 33.19 | 0.5625 |
+
+ROME is better: it rewrites every paraphrase and costs almost no perplexity (+0.01%, against +0.3% for the hand
+edit). Its layer was chosen on dev from 2, 3, 4, 5, 6, 8; dev paraphrase success was 0.33, 0, 0, 0, 0.67, 1.0, so the
+layer matters a great deal and the hand edit's layer 5 was probably a poor choice. The hand edit was not re-run at
+layer 8. The random-key control does nothing to the fact, so the hand edit's effect comes from its key.
+
+Caveats on the baseline: the key statistics come from about 20,600 tokens sampled from the model, not the paper's
+100,000 Wikipedia samples, and the optimisation is visibly noisy (p(new) moves between 0.91 and 0.99 in the last steps).
