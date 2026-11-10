@@ -1,18 +1,45 @@
 # model-weight-rewrite
 
-An experiment in **weight-space programming**: an LLM (Claude, driven through Claude Code) edits the weights of a
-small language model **by hand**. It inspects and changes tensors with tools, with no gradient training. The work is
-modelled on MIT's ["Sparks of Weight-Space Programming"](https://rikiyat.github.io/blog/weight-space-programming/)
-(Nov 2026).
+Tools and experiments for **editing a small language model's weights by hand**: inspecting and changing tensors
+directly, with no gradient training. The editor is an LLM agent (Claude, driven through Claude Code) working through
+a command-line harness. The work is modelled on MIT's
+["Sparks of Weight-Space Programming"](https://rikiyat.github.io/blog/weight-space-programming/) (Nov 2026).
 
-- `docs/research.md`: what that work did and released, and what we verified.
-- `docs/experiment-design.md`: targets, tasks, metrics, budgets, the experiment ladder, baseline numbers, open
-  questions.
+The repo has two parts:
+
+1. **A harness (`wsp`)** to look at weights, run the model and record its internal activations, apply edits that
+   can always be undone, and measure the effect on held-out tests.
+2. **A detector technique built on it**: find the direction in a model's activations that separates two situations,
+   and optionally write it into the weights so the model reacts to it. The intended application is **predicting
+   stalls and wedges in autonomous agent runs** from their transcripts, using an open model as the reader.
+   Start with `docs/stall-prediction-guide.md`.
+
+## What has been shown so far
+
+All on GPT-2 small unless noted; held-out test numbers. Details and scripts are in `docs/results/`.
+
+| Experiment | Hand edit | Result | Standard method on the same task |
+|---|---|---|---|
+| E1: switch off in-context copying | 5 attention heads replaced by their average output (0.2% of weights) | copying accuracy 0.97 -> 0.01; perplexity +13.5% | n/a |
+| E2: rewrite one fact (Eiffel Tower -> Rome) | one rank-1 edit to an MLP | rewrite 1.0, paraphrases 0.67, perplexity +0.3% | ROME: paraphrases 1.0, perplexity +0.01% |
+| E3: stop greedy repetition loops | a loop detector wired to a correction, one rank-1 edit | looping prompts 87.5% -> 25%, perplexity +3.0% | repetition penalty at decode time: 0% loops, no weight change |
+| Detector demo (sentiment) | closed-form detector, then written into the weights | AUC 0.92 as a probe; accuracy 0.81 written in | trained probe: AUC 0.91 |
+| Stall prediction stand-in (Qwen3.5-0.8B runs) | closed-form detector on the first 0-512 tokens | weak: AUC 0.5-0.7 | text statistics: 0.5-0.64 |
+
+In short: hand editing works and is cheap, existing methods beat it where they exist, the closed-form detector
+matches a trained probe, and early prediction of stalls is unproven.
+
+## Layout
+
+- `docs/stall-prediction-guide.md`: applying the detector to agent run logs, step by step.
+- `docs/research.md`: what the MIT work did and released, and what was verified.
+- `docs/experiment-design.md`: targets, tasks, metrics, budgets, the experiment ladder, the protocol for the editor.
+- `docs/results/`: one folder per experiment, with the write-up and the scripts used.
 - `src/wsp/`: the harness (`wsp` CLI and a Python library).
 - `data/tasks/`: small evaluation sets.
-- `scripts/`: importing the paper's released edits, a small Qwen loop check, the ROME and decode-time baselines, and
-  the detector stand-in demo.
-- `docs/results/`: what each experiment found (E1 copying heads, E2 fact rewrite, E3 loops, detector demo).
+- `scripts/`: baselines (`rome_baseline.py`, `decode_baseline.py`), detector demo, stall stand-in
+  (`stall_runs.py`, `stall_predict.py`), and the general tools for agent logs (`make_records.py`,
+  `predict_events.py`).
 
 ## Starting a session
 
