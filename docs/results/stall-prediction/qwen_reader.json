@@ -1,0 +1,146 @@
+[
+ {
+  "k": 0,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.5218,
+  "auc_sd": 0.0718,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.5668,
+  "auc_sd": 0.0409,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.5592,
+  "auc_sd": 0.048,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.5551,
+  "auc_sd": 0.046,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.5767,
+  "auc_sd": 0.0508,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:24 pool=last",
+  "auc_mean": 0.6189,
+  "auc_sd": 0.0526,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:24 pool=last",
+  "auc_mean": 0.6059,
+  "auc_sd": 0.0409,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:24 pool=mean",
+  "auc_mean": 0.4854,
+  "auc_sd": 0.0608,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:24 pool=mean",
+  "auc_mean": 0.487,
+  "auc_sd": 0.0691,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 256,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.5899,
+  "auc_sd": 0.0733,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.5917,
+  "auc_sd": 0.0406,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.6294,
+  "auc_sd": 0.0359,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.671,
+  "auc_sd": 0.0557,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.6862,
+  "auc_sd": 0.0627,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:24 pool=last",
+  "auc_mean": 0.5294,
+  "auc_sd": 0.0447,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:24 pool=last",
+  "auc_mean": 0.5317,
+  "auc_sd": 0.045,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:24 pool=mean",
+  "auc_mean": 0.6056,
+  "auc_sd": 0.0351,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:24 pool=mean",
+  "auc_mean": 0.6293,
+  "auc_sd": 0.0359,
+  "n": 253,
+  "n_stall": 84
+ }
+]

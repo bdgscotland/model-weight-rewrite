@@ -1,0 +1,546 @@
+[
+ {
+  "k": 0,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.5218,
+  "auc_sd": 0.0718,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:3 pool=last",
+  "auc_mean": 0.5248,
+  "auc_sd": 0.039,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:3 pool=last",
+  "auc_mean": 0.5117,
+  "auc_sd": 0.0271,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:3 pool=mean",
+  "auc_mean": 0.5035,
+  "auc_sd": 0.0465,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:3 pool=mean",
+  "auc_mean": 0.4878,
+  "auc_sd": 0.0404,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:6 pool=last",
+  "auc_mean": 0.5258,
+  "auc_sd": 0.0693,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:6 pool=last",
+  "auc_mean": 0.5356,
+  "auc_sd": 0.0723,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:6 pool=mean",
+  "auc_mean": 0.5002,
+  "auc_sd": 0.0565,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:6 pool=mean",
+  "auc_mean": 0.5237,
+  "auc_sd": 0.0568,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:9 pool=last",
+  "auc_mean": 0.4876,
+  "auc_sd": 0.0765,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:9 pool=last",
+  "auc_mean": 0.4916,
+  "auc_sd": 0.0864,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:9 pool=mean",
+  "auc_mean": 0.5204,
+  "auc_sd": 0.0378,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:9 pool=mean",
+  "auc_mean": 0.5192,
+  "auc_sd": 0.0295,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.535,
+  "auc_sd": 0.0468,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.5947,
+  "auc_sd": 0.0644,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.5425,
+  "auc_sd": 0.0687,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 0,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.5083,
+  "auc_sd": 0.0596,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.4909,
+  "auc_sd": 0.0429,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:3 pool=last",
+  "auc_mean": 0.5604,
+  "auc_sd": 0.0346,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:3 pool=last",
+  "auc_mean": 0.5553,
+  "auc_sd": 0.0757,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:3 pool=mean",
+  "auc_mean": 0.5821,
+  "auc_sd": 0.0272,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:3 pool=mean",
+  "auc_mean": 0.5841,
+  "auc_sd": 0.032,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:6 pool=last",
+  "auc_mean": 0.5949,
+  "auc_sd": 0.0308,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:6 pool=last",
+  "auc_mean": 0.58,
+  "auc_sd": 0.0422,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:6 pool=mean",
+  "auc_mean": 0.5925,
+  "auc_sd": 0.0495,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:6 pool=mean",
+  "auc_mean": 0.5846,
+  "auc_sd": 0.0471,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:9 pool=last",
+  "auc_mean": 0.6133,
+  "auc_sd": 0.0444,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:9 pool=last",
+  "auc_mean": 0.6062,
+  "auc_sd": 0.0517,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:9 pool=mean",
+  "auc_mean": 0.6216,
+  "auc_sd": 0.0445,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:9 pool=mean",
+  "auc_mean": 0.61,
+  "auc_sd": 0.0437,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.5767,
+  "auc_sd": 0.0562,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.5714,
+  "auc_sd": 0.0546,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.6228,
+  "auc_sd": 0.0569,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 128,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.5858,
+  "auc_sd": 0.0699,
+  "n": 256,
+  "n_stall": 87
+ },
+ {
+  "k": 256,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.5899,
+  "auc_sd": 0.0733,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:3 pool=last",
+  "auc_mean": 0.5021,
+  "auc_sd": 0.0448,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:3 pool=last",
+  "auc_mean": 0.5178,
+  "auc_sd": 0.0542,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:3 pool=mean",
+  "auc_mean": 0.6515,
+  "auc_sd": 0.0308,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:3 pool=mean",
+  "auc_mean": 0.6403,
+  "auc_sd": 0.0446,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:6 pool=last",
+  "auc_mean": 0.4963,
+  "auc_sd": 0.0387,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:6 pool=last",
+  "auc_mean": 0.5255,
+  "auc_sd": 0.0371,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:6 pool=mean",
+  "auc_mean": 0.6405,
+  "auc_sd": 0.0499,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:6 pool=mean",
+  "auc_mean": 0.6454,
+  "auc_sd": 0.0475,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:9 pool=last",
+  "auc_mean": 0.4966,
+  "auc_sd": 0.0533,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:9 pool=last",
+  "auc_mean": 0.5228,
+  "auc_sd": 0.0572,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:9 pool=mean",
+  "auc_mean": 0.6734,
+  "auc_sd": 0.0498,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:9 pool=mean",
+  "auc_mean": 0.6452,
+  "auc_sd": 0.0582,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.5305,
+  "auc_sd": 0.061,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.564,
+  "auc_sd": 0.0495,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.7,
+  "auc_sd": 0.0431,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 256,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.6377,
+  "auc_sd": 0.0507,
+  "n": 253,
+  "n_stall": 84
+ },
+ {
+  "k": 512,
+  "predictor": "logs: transcript statistics, no model",
+  "auc_mean": 0.6405,
+  "auc_sd": 0.0657,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:3 pool=last",
+  "auc_mean": 0.6546,
+  "auc_sd": 0.0528,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:3 pool=last",
+  "auc_mean": 0.6435,
+  "auc_sd": 0.0557,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:3 pool=mean",
+  "auc_mean": 0.6241,
+  "auc_sd": 0.0485,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:3 pool=mean",
+  "auc_mean": 0.6186,
+  "auc_sd": 0.0413,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:6 pool=last",
+  "auc_mean": 0.6007,
+  "auc_sd": 0.0625,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:6 pool=last",
+  "auc_mean": 0.6212,
+  "auc_sd": 0.062,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:6 pool=mean",
+  "auc_mean": 0.6297,
+  "auc_sd": 0.058,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:6 pool=mean",
+  "auc_mean": 0.6433,
+  "auc_sd": 0.0569,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:9 pool=last",
+  "auc_mean": 0.5745,
+  "auc_sd": 0.036,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:9 pool=last",
+  "auc_mean": 0.5444,
+  "auc_sd": 0.0357,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:9 pool=mean",
+  "auc_mean": 0.653,
+  "auc_sd": 0.0644,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:9 pool=mean",
+  "auc_mean": 0.6476,
+  "auc_sd": 0.075,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:12 pool=last",
+  "auc_mean": 0.5552,
+  "auc_sd": 0.056,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:12 pool=last",
+  "auc_mean": 0.5873,
+  "auc_sd": 0.0419,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "detector  hidden:12 pool=mean",
+  "auc_mean": 0.6883,
+  "auc_sd": 0.0481,
+  "n": 250,
+  "n_stall": 83
+ },
+ {
+  "k": 512,
+  "predictor": "probe     hidden:12 pool=mean",
+  "auc_mean": 0.6396,
+  "auc_sd": 0.0492,
+  "n": 250,
+  "n_stall": 83
+ }
+]
